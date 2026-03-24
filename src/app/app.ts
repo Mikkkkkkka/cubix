@@ -1,9 +1,9 @@
-import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import {Component, signal} from '@angular/core';
+import {CubeLayoutComponent} from './components/cube-layout/cube-layout.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [CubeLayoutComponent],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })

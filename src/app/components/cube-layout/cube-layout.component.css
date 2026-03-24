@@ -1,0 +1,68 @@
+.cube-layout {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  max-width: 1000px;
+  min-width: 400px;
+}
+
+.cube-layout__face {
+  aspect-ratio: 1 / 1;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+}
+
+.cube-layout__face--top {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+.cube-layout__face--left {
+  grid-column: 1;
+  grid-row: 2;
+}
+
+.cube-layout__face--front {
+  grid-column: 2;
+  grid-row: 2;
+}
+
+.cube-layout__face--right {
+  grid-column: 3;
+  grid-row: 2;
+}
+
+.cube-layout__face--back {
+  grid-column: 4;
+  grid-row: 2;
+}
+
+.cube-layout__face--bottom {
+  grid-column: 2;
+  grid-row: 3;
+}
+
+.cube-layout__square {
+  aspect-ratio: 1 / 1;
+  min-width: 80px;
+}
+
+.cube-layout__square--white {
+  background-color: white;
+}
+.cube-layout__square--orange {
+  background-color: orange;
+}
+.cube-layout__square--green {
+  background-color: green;
+}
+.cube-layout__square--red {
+  background-color: red;
+}
+.cube-layout__square--blue {
+  background-color: blue;
+}
+.cube-layout__square--yellow {
+  background-color: yellow;
+}
