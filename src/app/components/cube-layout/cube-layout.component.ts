@@ -91,10 +91,7 @@ export class CubeLayoutComponent {
     [keep, this._rightFace[0][1]] = [this._rightFace[0][1], keep];
 
     // right column
-    let keepColumn: CubeSquare[] = [{id: 10, color: SquareColor.WHITE}, {id: 10, color: SquareColor.WHITE}, {
-      id: 10,
-      color: SquareColor.WHITE
-    },];
+    let keepColumn: CubeSquare[] = [{id: 10, color: SquareColor.WHITE}, {id: 10, color: SquareColor.WHITE}, {id: 10, color: SquareColor.WHITE}];
     this._frontFace.forEach((row, i) => [keepColumn[i], row[2]] = [row[2], keepColumn[i]])
     this._topFace.forEach((row, i) => [keepColumn[i], row[2]] = [row[2], keepColumn[i]])
     this._backFace.forEach((row, i) => [keepColumn[i], row[0]] = [row[0], keepColumn.reverse()[i]])
@@ -119,10 +116,7 @@ export class CubeLayoutComponent {
     [keep, this._frontFace[0][1]] = [this._frontFace[0][1], keep];
 
     // right column
-    let keepColumn: CubeSquare[] = [{id: 10, color: SquareColor.WHITE}, {id: 10, color: SquareColor.WHITE}, {
-      id: 10,
-      color: SquareColor.WHITE
-    },];
+    let keepColumn: CubeSquare[] = [{id: 10, color: SquareColor.WHITE}, {id: 10, color: SquareColor.WHITE}, {id: 10, color: SquareColor.WHITE}];
     this._rightFace.forEach((row, i) => [keepColumn[i], row[0]] = [row[0], keepColumn[i]]);
     [keepColumn, this._topFace[2]] = [this._topFace[2], keepColumn];
     this._leftFace.forEach((row, i) => [keepColumn[i], row[2]] = [row[2], keepColumn.reverse()[i]]);
