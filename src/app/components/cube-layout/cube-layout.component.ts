@@ -30,7 +30,7 @@ export class CubeLayoutComponent {
   }
 
   get leftFace(): CubeSquare[][] {
-    return [...this._leftFace]
+    return [...this._leftFace];
   }
 
   get frontFace(): CubeSquare[][] {
@@ -50,78 +50,45 @@ export class CubeLayoutComponent {
   }
 
   public u() {
-    // top face corners
-    let keep: CubeSquare = {id: 10, color: SquareColor.WHITE};
-    [keep, this._topFace[0][0]] = [this._topFace[0][0], keep];
-    [keep, this._topFace[0][2]] = [this._topFace[0][2], keep];
-    [keep, this._topFace[2][2]] = [this._topFace[2][2], keep];
-    [keep, this._topFace[2][0]] = [this._topFace[2][0], keep];
-    [keep, this._topFace[0][0]] = [this._topFace[0][0], keep];
+    this.rotateFaceClockwise(this._topFace);
 
-    // top face edges
-    [keep, this._topFace[0][1]] = [this._topFace[0][1], keep];
-    [keep, this._topFace[1][2]] = [this._topFace[1][2], keep];
-    [keep, this._topFace[2][1]] = [this._topFace[2][1], keep];
-    [keep, this._topFace[1][0]] = [this._topFace[1][0], keep];
-    [keep, this._topFace[0][1]] = [this._topFace[0][1], keep];
+    const front = this.getRow(this._frontFace, 0);
+    const right = this.getRow(this._rightFace, 0);
+    const back = this.getRow(this._backFace, 0);
+    const left = this.getRow(this._leftFace, 0);
 
-    // top row
-    let keepRow: CubeSquare[] = [];
-    [keepRow, this._rightFace[0]] = [this._rightFace[0], keepRow];
-    [keepRow, this._frontFace[0]] = [this._frontFace[0], keepRow];
-    [keepRow, this._leftFace[0]] = [this._leftFace[0], keepRow];
-    [keepRow, this._backFace[0]] = [this._backFace[0], keepRow];
-    [keepRow, this._rightFace[0]] = [this._rightFace[0], keepRow];
+    this.setRow(this._frontFace, 0, right);
+    this.setRow(this._leftFace, 0, front);
+    this.setRow(this._backFace, 0, left);
+    this.setRow(this._rightFace, 0, back);
   }
 
   public r() {
-    // right face corners
-    let keep: CubeSquare = {id: 10, color: SquareColor.WHITE};
-    [keep, this._rightFace[0][0]] = [this._rightFace[0][0], keep];
-    [keep, this._rightFace[0][2]] = [this._rightFace[0][2], keep];
-    [keep, this._rightFace[2][2]] = [this._rightFace[2][2], keep];
-    [keep, this._rightFace[2][0]] = [this._rightFace[2][0], keep];
-    [keep, this._rightFace[0][0]] = [this._rightFace[0][0], keep];
+    this.rotateFaceClockwise(this._rightFace);
 
-    // right face edges
-    [keep, this._rightFace[0][1]] = [this._rightFace[0][1], keep];
-    [keep, this._rightFace[1][2]] = [this._rightFace[1][2], keep];
-    [keep, this._rightFace[2][1]] = [this._rightFace[2][1], keep];
-    [keep, this._rightFace[1][0]] = [this._rightFace[1][0], keep];
-    [keep, this._rightFace[0][1]] = [this._rightFace[0][1], keep];
+    const top = this.getColumn(this._topFace, this.size - 1);
+    const front = this.getColumn(this._frontFace, this.size - 1);
+    const bottom = this.getColumn(this._bottomFace, this.size - 1);
+    const back = this.getColumn(this._backFace, 0);
 
-    // right column
-    let keepColumn: CubeSquare[] = [{id: 10, color: SquareColor.WHITE}, {id: 10, color: SquareColor.WHITE}, {id: 10, color: SquareColor.WHITE}];
-    this._frontFace.forEach((row, i) => [keepColumn[i], row[2]] = [row[2], keepColumn[i]])
-    this._topFace.forEach((row, i) => [keepColumn[i], row[2]] = [row[2], keepColumn[i]])
-    this._backFace.forEach((row, i) => [keepColumn[i], row[0]] = [row[0], keepColumn.reverse()[i]])
-    this._bottomFace.forEach((row, i) => [keepColumn[i], row[2]] = [row[2], keepColumn.reverse()[i]])
-    this._frontFace.forEach((row, i) => [keepColumn[i], row[2]] = [row[2], keepColumn[i]])
+    this.setColumn(this._frontFace, this.size - 1, top);
+    this.setColumn(this._bottomFace, this.size - 1, front);
+    this.setColumn(this._backFace, 0, [...bottom].reverse());
+    this.setColumn(this._topFace, this.size - 1, [...back].reverse());
   }
 
   public f() {
-    // right face corners
-    let keep: CubeSquare = {id: 10, color: SquareColor.WHITE};
-    [keep, this._frontFace[0][0]] = [this._frontFace[0][0], keep];
-    [keep, this._frontFace[0][2]] = [this._frontFace[0][2], keep];
-    [keep, this._frontFace[2][2]] = [this._frontFace[2][2], keep];
-    [keep, this._frontFace[2][0]] = [this._frontFace[2][0], keep];
-    [keep, this._frontFace[0][0]] = [this._frontFace[0][0], keep];
+    this.rotateFaceClockwise(this._frontFace);
 
-    // right face edges
-    [keep, this._frontFace[0][1]] = [this._frontFace[0][1], keep];
-    [keep, this._frontFace[1][2]] = [this._frontFace[1][2], keep];
-    [keep, this._frontFace[2][1]] = [this._frontFace[2][1], keep];
-    [keep, this._frontFace[1][0]] = [this._frontFace[1][0], keep];
-    [keep, this._frontFace[0][1]] = [this._frontFace[0][1], keep];
+    const top = this.getRow(this._topFace, this.size - 1);
+    const right = this.getColumn(this._rightFace, 0);
+    const bottom = this.getRow(this._bottomFace, 0);
+    const left = this.getColumn(this._leftFace, this.size - 1);
 
-    // right column
-    let keepColumn: CubeSquare[] = [{id: 10, color: SquareColor.WHITE}, {id: 10, color: SquareColor.WHITE}, {id: 10, color: SquareColor.WHITE}];
-    this._rightFace.forEach((row, i) => [keepColumn[i], row[0]] = [row[0], keepColumn[i]]);
-    [keepColumn, this._topFace[2]] = [this._topFace[2], keepColumn];
-    this._leftFace.forEach((row, i) => [keepColumn[i], row[2]] = [row[2], keepColumn.reverse()[i]]);
-    [keepColumn, this._bottomFace[0]] = [this._bottomFace[0], keepColumn];
-    this._rightFace.forEach((row, i) => [keepColumn[i], row[0]] = [row[0], keepColumn.reverse()[i]])
+    this.setColumn(this._rightFace, 0, top);
+    this.setRow(this._bottomFace, 0, [...right].reverse());
+    this.setColumn(this._leftFace, this.size - 1, bottom);
+    this.setRow(this._topFace, this.size - 1, [...left].reverse());
   }
 
   private generateFace(color: SquareColor): CubeSquare[][] {
@@ -129,9 +96,39 @@ export class CubeLayoutComponent {
     for (let i = 0; i < this.size; i++) {
       squares[i] = [];
       for (let j = 0; j < this.size; j++) {
-        squares[i].push({id: i * this.size + j, color: color});
+        squares[i].push({id: i * this.size + j, color});
       }
     }
     return squares;
+  }
+
+  private rotateFaceClockwise(face: CubeSquare[][]): void {
+    const rotated = face.map((_, rowIndex) =>
+      face.map((row) => row[rowIndex]).reverse(),
+    );
+
+    for (let row = 0; row < this.size; row++) {
+      for (let column = 0; column < this.size; column++) {
+        face[row][column] = rotated[row][column];
+      }
+    }
+  }
+
+  private getRow(face: CubeSquare[][], rowIndex: number): CubeSquare[] {
+    return [...face[rowIndex]];
+  }
+
+  private setRow(face: CubeSquare[][], rowIndex: number, values: CubeSquare[]): void {
+    face[rowIndex] = [...values];
+  }
+
+  private getColumn(face: CubeSquare[][], columnIndex: number): CubeSquare[] {
+    return face.map((row) => row[columnIndex]);
+  }
+
+  private setColumn(face: CubeSquare[][], columnIndex: number, values: CubeSquare[]): void {
+    values.forEach((value, rowIndex) => {
+      face[rowIndex][columnIndex] = value;
+    });
   }
 }
