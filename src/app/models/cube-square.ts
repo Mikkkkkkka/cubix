@@ -1,12 +1,13 @@
 export type CubeSquare = {
+  id: number;
   color: SquareColor
 }
 
 export enum SquareColor {
-  WHITE = 0,
-  ORANGE = 1,
-  GREEN = 2,
-  RED = 3,
-  BLUE = 4,
-  YELLOW = 5,
+  WHITE = "white",
+  ORANGE = "orange",
+  GREEN = "green",
+  RED = "red",
+  BLUE = "blue",
+  YELLOW = "yellow",
 }
