@@ -1,68 +1,32 @@
 <div class="cube-layout">
   <div class="cube-layout__face cube-layout__face--top">
-    <div class="cube-layout__square cube-layout__square--white"></div>
-    <div class="cube-layout__square cube-layout__square--white"></div>
-    <div class="cube-layout__square cube-layout__square--white"></div>
-    <div class="cube-layout__square cube-layout__square--white"></div>
-    <div class="cube-layout__square cube-layout__square--white"></div>
-    <div class="cube-layout__square cube-layout__square--white"></div>
-    <div class="cube-layout__square cube-layout__square--white"></div>
-    <div class="cube-layout__square cube-layout__square--white"></div>
-    <div class="cube-layout__square cube-layout__square--white"></div>
+    @for (square of topFace.flat(); track square.id) {
+      <div class="cube-layout__square cube-layout__square--{{ square.color }}" (click)="u()">{{ square.id }}</div>
+    }
   </div>
   <div class="cube-layout__face cube-layout__face--left">
-    <div class="cube-layout__square cube-layout__square--orange"></div>
-    <div class="cube-layout__square cube-layout__square--orange"></div>
-    <div class="cube-layout__square cube-layout__square--orange"></div>
-    <div class="cube-layout__square cube-layout__square--orange"></div>
-    <div class="cube-layout__square cube-layout__square--orange"></div>
-    <div class="cube-layout__square cube-layout__square--orange"></div>
-    <div class="cube-layout__square cube-layout__square--orange"></div>
-    <div class="cube-layout__square cube-layout__square--orange"></div>
-    <div class="cube-layout__square cube-layout__square--orange"></div>
+    @for (square of leftFace.flat(); track square.id) {
+      <div class="cube-layout__square cube-layout__square--{{ square.color }}">{{ square.id }}</div>
+    }
   </div>
   <div class="cube-layout__face cube-layout__face--front">
-    <div class="cube-layout__square cube-layout__square--green"></div>
-    <div class="cube-layout__square cube-layout__square--green"></div>
-    <div class="cube-layout__square cube-layout__square--green"></div>
-    <div class="cube-layout__square cube-layout__square--green"></div>
-    <div class="cube-layout__square cube-layout__square--green"></div>
-    <div class="cube-layout__square cube-layout__square--green"></div>
-    <div class="cube-layout__square cube-layout__square--green"></div>
-    <div class="cube-layout__square cube-layout__square--green"></div>
-    <div class="cube-layout__square cube-layout__square--green"></div>
+    @for (square of frontFace.flat(); track square.id) {
+      <div class="cube-layout__square cube-layout__square--{{ square.color }}" (click)="f()">{{ square.id }}</div>
+    }
   </div>
   <div class="cube-layout__face cube-layout__face--right">
-    <div class="cube-layout__square cube-layout__square--red"></div>
-    <div class="cube-layout__square cube-layout__square--red"></div>
-    <div class="cube-layout__square cube-layout__square--red"></div>
-    <div class="cube-layout__square cube-layout__square--red"></div>
-    <div class="cube-layout__square cube-layout__square--red"></div>
-    <div class="cube-layout__square cube-layout__square--red"></div>
-    <div class="cube-layout__square cube-layout__square--red"></div>
-    <div class="cube-layout__square cube-layout__square--red"></div>
-    <div class="cube-layout__square cube-layout__square--red"></div>
+    @for (square of rightFace.flat(); track square.id) {
+      <div class="cube-layout__square cube-layout__square--{{ square.color }}" (click)="r()">{{ square.id }}</div>
+    }
   </div>
   <div class="cube-layout__face cube-layout__face--back">
-    <div class="cube-layout__square cube-layout__square--blue"></div>
-    <div class="cube-layout__square cube-layout__square--blue"></div>
-    <div class="cube-layout__square cube-layout__square--blue"></div>
-    <div class="cube-layout__square cube-layout__square--blue"></div>
-    <div class="cube-layout__square cube-layout__square--blue"></div>
-    <div class="cube-layout__square cube-layout__square--blue"></div>
-    <div class="cube-layout__square cube-layout__square--blue"></div>
-    <div class="cube-layout__square cube-layout__square--blue"></div>
-    <div class="cube-layout__square cube-layout__square--blue"></div>
+    @for (square of backFace.flat(); track square.id) {
+      <div class="cube-layout__square cube-layout__square--{{ square.color }}">{{ square.id }}</div>
+    }
   </div>
   <div class="cube-layout__face cube-layout__face--bottom">
-    <div class="cube-layout__square cube-layout__square--yellow"></div>
-    <div class="cube-layout__square cube-layout__square--yellow"></div>
-    <div class="cube-layout__square cube-layout__square--yellow"></div>
-    <div class="cube-layout__square cube-layout__square--yellow"></div>
-    <div class="cube-layout__square cube-layout__square--yellow"></div>
-    <div class="cube-layout__square cube-layout__square--yellow"></div>
-    <div class="cube-layout__square cube-layout__square--yellow"></div>
-    <div class="cube-layout__square cube-layout__square--yellow"></div>
-    <div class="cube-layout__square cube-layout__square--yellow"></div>
+    @for (square of bottomFace.flat(); track square.id) {
+      <div class="cube-layout__square cube-layout__square--{{ square.color }}">{{ square.id }}</div>
+    }
   </div>
 </div>
