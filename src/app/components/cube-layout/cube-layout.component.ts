@@ -49,6 +49,17 @@ export class CubeLayoutComponent {
     return [...this._bottomFace];
   }
 
+  get faces() {
+    return [
+      { face: this.topFace, move: this.u },
+      { face: this.leftFace, move: null },
+      { face: this.frontFace, move: this.f },
+      { face: this.rightFace, move: this.r },
+      { face: this.backFace, move: null },
+      { face: this.bottomFace, move: null },
+    ]
+  }
+
   public u() {
     this.rotateFaceClockwise(this._topFace);
 
