@@ -1,10 +1,10 @@
 <div class="cube-layout">
-  @for (cubeFace of faces; track cubeFace.name) {
+  @for (cubeFace of faces(); track cubeFace.name) {
     <div class="cube-layout__face cube-layout__face--{{ cubeFace.name }}">
       @for (square of cubeFace.face.flat(); track square.id) {
         <div
-          class="cube-layout__square cube-layout__square--{{ square.color }}"
           (click)="cubeFace.move?.()"
+          class="cube-layout__square cube-layout__square--{{ square.color }}"
         ></div>
       }
     </div>
