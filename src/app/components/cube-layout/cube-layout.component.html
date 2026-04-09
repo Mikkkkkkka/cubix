@@ -1,32 +1,12 @@
 <div class="cube-layout">
-  <div class="cube-layout__face cube-layout__face--top">
-    @for (square of topFace.flat(); track square.id) {
-      <div class="cube-layout__square cube-layout__square--{{ square.color }}" (click)="u()"></div>
-    }
-  </div>
-  <div class="cube-layout__face cube-layout__face--left">
-    @for (square of leftFace.flat(); track square.id) {
-      <div class="cube-layout__square cube-layout__square--{{ square.color }}"></div>
-    }
-  </div>
-  <div class="cube-layout__face cube-layout__face--front">
-    @for (square of frontFace.flat(); track square.id) {
-      <div class="cube-layout__square cube-layout__square--{{ square.color }}" (click)="f()"></div>
-    }
-  </div>
-  <div class="cube-layout__face cube-layout__face--right">
-    @for (square of rightFace.flat(); track square.id) {
-      <div class="cube-layout__square cube-layout__square--{{ square.color }}" (click)="r()"></div>
-    }
-  </div>
-  <div class="cube-layout__face cube-layout__face--back">
-    @for (square of backFace.flat(); track square.id) {
-      <div class="cube-layout__square cube-layout__square--{{ square.color }}"></div>
-    }
-  </div>
-  <div class="cube-layout__face cube-layout__face--bottom">
-    @for (square of bottomFace.flat(); track square.id) {
-      <div class="cube-layout__square cube-layout__square--{{ square.color }}"></div>
-    }
-  </div>
+  @for (cubeFace of faces; track cubeFace.name) {
+    <div class="cube-layout__face cube-layout__face--{{ cubeFace.name }}">
+      @for (square of cubeFace.face.flat(); track square.id) {
+        <div
+          class="cube-layout__square cube-layout__square--{{ square.color }}"
+          (click)="cubeFace.move?.()"
+        ></div>
+      }
+    </div>
+  }
 </div>
