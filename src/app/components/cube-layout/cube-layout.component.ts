@@ -51,13 +51,13 @@ export class CubeLayoutComponent {
 
   get faces() {
     return [
-      { face: this.topFace, move: this.u },
-      { face: this.leftFace, move: null },
-      { face: this.frontFace, move: this.f },
-      { face: this.rightFace, move: this.r },
-      { face: this.backFace, move: null },
-      { face: this.bottomFace, move: null },
-    ]
+      { name: 'top', face: this.topFace, move: () => this.u() },
+      { name: 'left', face: this.leftFace, move: null },
+      { name: 'front', face: this.frontFace, move: () => this.f() },
+      { name: 'right', face: this.rightFace, move: () => this.r() },
+      { name: 'back', face: this.backFace, move: null },
+      { name: 'bottom', face: this.bottomFace, move: null },
+    ];
   }
 
   public u() {
